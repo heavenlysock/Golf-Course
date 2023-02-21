@@ -4,34 +4,44 @@ class ReviewsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :not_found
     rescue_from ActiveRecord::RecordInvalid, with: :invalid
 
-
-
     def index
-        render json: Course.all, status: :ok
+        render json: Review.all, status: :ok
     end
 
     def show
-        render json: Course.find(params[:id]), status: :ok, serializer: CourseReviewSerializer
+        render json: Review.find(params[:id]), status: :ok
     end
 
     def create
-        render json: Course.create!(course_params), status: :created
+        render json: Review.create!(review_params), status: :created
     end
 
     def update
-        render json: Course.find(params[:id]).update!(course_params), status: :accepted
+        render json: Review.find(params[:id]).update!(review_params), status: :accepted
     end
 
-
-
+    def destroy
+        render json: Review.find(params[:id]).destroy!
+        head :no_content
+    end
 
     private
 
-    def course_params
-        params.permit(:name, :location, :price, :holes, :par, :length, :image_url)
+    def review_params
+        params.permit(:user, :course, :recommendation, :pros, :cons, :rating)
     end
 
     def not_found
-        render json: { error: "Course not found" }, status: :not_found
+        render json: { error: "Review not found" }, status: :not_found
     end
+
+end
+
+
+
+
+
+
+
+    
 end
