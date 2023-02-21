@@ -1,6 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect} from 'react'
+import { Switch, Route } from 'react-router-dom'
+import Main from './components/Main';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import CourseList from './components/CourseList';
+import ReviewList from './components/ReviewList';
+import UserList from './components/UserList';
+import NavBar from './components/NavBar';
+
 
 function App() {
 
@@ -47,10 +56,10 @@ function App() {
             <Main currentUser={currentUser}/>
           </Route>
           <Route exact path='/reviews'>
-            <ReviewsList/>
+            <ReviewList/>
           </Route>
           <Route exact path='/users'>
-            <UsersList/>
+            <UserList/>
           </Route>
           <Route exact path='/login'>
             <Login onLogIn={onLogIn}/>
