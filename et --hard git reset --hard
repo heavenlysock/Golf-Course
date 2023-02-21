@@ -1,0 +1,142 @@
+[33mcommit 6a201a0b3f73fdf4a9bfc7b9d0b2a2f7a220898f[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Robert Lee <bobertsworld@gmail.com>
+Date:   Fri Feb 17 14:52:49 2023 -0800
+
+    getting over fear of commmitment
+
+[33mcommit 0329807a00c487a69eb8ca256ae7014671c6c207[m
+Author: Robert Lee <bobertsworld@gmail.com>
+Date:   Wed Feb 15 20:48:50 2023 -0800
+
+    second push with seed DATA
+
+[33mcommit 90ed40e860b79687f625c1d48c3641fee328bd1f[m
+Author: Robert Lee <bobertsworld@gmail.com>
+Date:   Wed Feb 15 15:05:08 2023 -0800
+
+    first push masterkey
+
+[33mcommit cb8c4e8b05f1840190961a1505781e856bb0ae12[m
+Author: Liz Burton <liz.burton147@gmail.com>
+Date:   Sun Oct 30 12:20:59 2022 -0400
+
+    Clarify Render signup instructions
+
+[33mcommit 948729e9f457e09c0182a5c810a408121d459276[m
+Author: Liz Burton <liz.burton147@gmail.com>
+Date:   Sun Oct 30 11:51:25 2022 -0400
+
+    'add missing instructions'
+
+[33mcommit b6cc5f04e5aad17272c2ecaccba21287155510ce[m
+Author: Liz Burton <liz.burton147@gmail.com>
+Date:   Sun Oct 30 11:49:17 2022 -0400
+
+    add missing instructions
+
+[33mcommit 76ac88c21c4f953a0c65cf5f4e7ed403a2d7f866[m
+Author: Liz Burton <liz.burton147@gmail.com>
+Date:   Fri Oct 28 15:16:29 2022 -0400
+
+    Fix typos
+
+[33mcommit 7da31f4268f7f896d9ffca974d32236d3ccbe6b1[m
+Author: Liz Burton <liz.burton147@gmail.com>
+Date:   Thu Oct 27 16:07:45 2022 -0400
+
+    Remove redundant instructions
+
+[33mcommit 38f620d5713bc8c933ad29fa2ce7421ad216f630[m
+Author: Liz Burton <liz.burton147@gmail.com>
+Date:   Thu Oct 27 15:26:17 2022 -0400
+
+    change permissions
+
+[33mcommit 65a56fcc30d608cb8fd12df2a31a7b5bf3872b9a[m
+Author: Liz Burton <liz.burton147@gmail.com>
+Date:   Thu Oct 27 13:48:58 2022 -0400
+
+    Update instructions for Render
+
+[33mcommit 4491794746d11e8e8953d94b4c439547189c8733[m
+Author: Liz Burton <liz.burton147@gmail.com>
+Date:   Thu Oct 27 13:48:41 2022 -0400
+
+    Configure for Render
+
+[33mcommit b60327be2cec35c03fccd3d7a3612f95edd71388[m
+Author: Ian Hollander <39830572+ihollander@users.noreply.github.com>
+Date:   Mon Dec 6 13:51:41 2021 -0500
+
+    Add WSL Postgres dependency
+
+[33mcommit eb83ae4f96f9ced94c2702ce271ed2ed8b548533[m
+Merge: f6fe100 1b1d2ab
+Author: Ian Hollander <39830572+ihollander@users.noreply.github.com>
+Date:   Thu Oct 28 03:47:06 2021 -0700
+
+    Merge pull request #35 from learn-co-curriculum/fix-node-version
+    
+    Use Node 16
+
+[33mcommit 1b1d2ab898362cb59f76675f49fe9ccef822b66f[m
+Author: ihollander <ianholla@gmail.com>
+Date:   Thu Oct 28 06:43:48 2021 -0400
+
+    Use Node 16
+
+[33mcommit f6fe100e3e3f857e4af576b7fdf1a6407e81e5d8[m
+Author: ihollander <ianholla@gmail.com>
+Date:   Fri Sep 3 13:52:26 2021 -0400
+
+    Updated setup
+
+[33mcommit a7af90467ec133c503f90be18742b12c4bc9fa2a[m
+Author: ihollander <ianholla@gmail.com>
+Date:   Thu Sep 2 10:09:15 2021 -0400
+
+    Remove `rails start` command
+    
+    - Fixes #33
+
+[33mcommit 267b2e6ceccaaf7e4cbcc4793dd5affcc3fcc900[m
+Author: ihollander <ianholla@gmail.com>
+Date:   Fri Jul 30 17:39:14 2021 -0400
+
+    Update Ruby version
+
+[33mcommit f8d67fd43a7fe1664c773679e8b31c3e25c6afe6[m
+Author: ihollander <ianholla@gmail.com>
+Date:   Thu Jul 8 13:44:12 2021 -0400
+
+    Updated environment setup instructions
+
+[33mcommit d1ba663cdead9664b9b441a693a437afffbd71ee[m
+Author: ihollander <ianholla@gmail.com>
+Date:   Thu Jul 8 13:36:30 2021 -0400
+
+    Update Ruby version required for Heroku
+
+[33mcommit 0cba143d2ac15be0c67f51fb90ef2fc0159201b8[m
+Author: ihollander <ianholla@gmail.com>
+Date:   Mon Jun 21 09:26:27 2021 -0400
+
+    Added troubleshooting section
+
+[33mcommit 8f09f9bb92e80eeced997878139179b10db60e29[m
+Author: Liz Burton <liz.burton147@gmail.com>
+Date:   Tue Jun 15 09:59:52 2021 -0400
+
+    Minor edits
+
+[33mcommit 79c3f1c978ffb5aa0daca11a8bee357c1831a2ce[m
+Author: ihollander <ianholla@gmail.com>
+Date:   Wed Jun 9 09:29:01 2021 -0400
+
+    Fixed link
+
+[33mcommit 1ee5b5b2962f6a4f05fbbe341a59837f0d7c9c2f[m
+Author: ihollander <ianholla@gmail.com>
+Date:   Wed Jun 9 09:12:29 2021 -0400
+
+    Initial commit
