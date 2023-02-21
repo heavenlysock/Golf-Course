@@ -43,20 +43,12 @@ function App() {
         onLogOut={onLogOut}
         />
         <Switch>
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
+          <Route exact path='/'>
+            <Main currentUser={currentUser}/>
+          </Route>
+          <Route exact path='/'>
+            {/* <Main currentUser={currentUser}/> */}
+          </Route>
         </Switch>
       
     </div>
