@@ -46,8 +46,18 @@ function App() {
           <Route exact path='/'>
             <Main currentUser={currentUser}/>
           </Route>
-          <Route exact path='/'>
-            {/* <Main currentUser={currentUser}/> */}
+          <Route exact path='/reviews'>
+            <ReviewsList/>
+          </Route>
+          <Route exact path='/users'>
+            <UsersList/>
+          </Route>
+          <Route exact path='/login'>
+            <Login onLogIn={onLogIn}/>
+          </Route>
+        
+          <Route exact path='/login'>
+            <Signup onLogIn={onLogIn}/>
           </Route>
         </Switch>
       
