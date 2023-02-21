@@ -1,10 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import { useState, useEffect} from 'react'
+import { useState, useEffect} from 'react';
 import { Switch, Route } from 'react-router-dom'
 import Main from './components/Main';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import UserDetail from './components/UserDetail';
+import CourseDetail from './components/CourseDetail';
 import CourseList from './components/CourseList';
 import ReviewList from './components/ReviewList';
 import UserList from './components/UserList';
@@ -14,12 +15,16 @@ import NavBar from './components/NavBar';
 function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
+  const [displayInfo, setDisplayInfo] = useState(null)
+
+  
+
 
   useEffect(() => {
     fetch('/me')
-      .then(res => {
-        if(res.ok) {
-          res.json()
+      .then(response => {
+        if(response.ok) {
+          response.json()
           .then((user) => setCurrentUser(user))
         }
       })
@@ -35,13 +40,14 @@ function App() {
   function onLogOut(){
     setCurrentUser(null)
   }
-  function onSeeDetails(individual) {
-    setDisplayItem(individual)
+
+  function onShowDetails(individual) {
+    setDisplayInfo(individual)
   }
 
   function onDeleteUser() {
     setCurrentUser(null)
-    setDisplayItem(null)
+    setDisplayInfo(null)
   }
 
 
@@ -61,11 +67,19 @@ function App() {
           <Route exact path='/users'>
             <UserList/>
           </Route>
+          <Route exact path='/courses'>
+            <CourseList/>
+          </Route>
+          <Route exact path='/courses/:id'>
+            <UserDetail onShowDetails={onShowDetails} displayInfo={displayInfo} currentUser={currentUser}/>
+          </Route>
+          <Route exact path='/users/:id'>
+            <CourseDetail onShowDetails={onShowDetails} displayInfo={displayInfo} currentUser={currentUser} onDeleteUser={onDeleteUser}/>
+          </Route>
           <Route exact path='/login'>
             <Login onLogIn={onLogIn}/>
           </Route>
-        
-          <Route exact path='/login'>
+          <Route exact path='/signup'>
             <Signup onLogIn={onLogIn}/>
           </Route>
         </Switch>
