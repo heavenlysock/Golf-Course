@@ -8,7 +8,7 @@ function CourseForm({ onSubmitNewCourse }) {
     const [holes, setHoles] = useState("")
     const [par, setPar] = useState("")
     const [length, setLength] = useState("")
-    const [image_url, setImage_url] = useState("")
+    const [img_url, setImg_url] = useState("")
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -19,7 +19,7 @@ function CourseForm({ onSubmitNewCourse }) {
             holes: holes,
             par: par,
             length: length,
-            image_url: image_url
+            img_url: img_url
         }
 
         fetch('/courses', {
@@ -42,7 +42,7 @@ function CourseForm({ onSubmitNewCourse }) {
         setHoles("")
         setPar("")
         setLength("")
-        setImage_url("")
+        setImg_url("")
     }
 
     return(
@@ -130,8 +130,8 @@ function CourseForm({ onSubmitNewCourse }) {
                             className='form-control'
                             type="text" 
                             name="image_url" 
-                            value={image_url}
-                            onChange={e => setImage_url(e.target.value)}
+                            value={img_url}
+                            onChange={e => setImg_url(e.target.value)}
                         />
                     </div>
                 </div>

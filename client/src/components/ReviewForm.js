@@ -16,7 +16,7 @@ function ReviewForm({ currentUser, displayItem, onSubmitNewReview }) {
             cons_comment: consComment,
             recommendBool: recommendBool,
             user_id: currentUser.id,
-            noodle_id: displayItem.id
+            // course_id: displayInfo.id
         }
         fetch('/reviews', {
             method: 'POST',
@@ -98,10 +98,10 @@ function ReviewForm({ currentUser, displayItem, onSubmitNewReview }) {
                     <div className='col-sm-6'>
                         <input
                             className='form-control'
-                            type="boolean" 
+                            type="checkbox" 
                             name="recommendBool" 
                             value={recommendBool}
-                            onChange={e => setRecommendBool(e.target.value)}
+                            onChange={e => setRecommendBool(e.target.checked)}
                         />
                     </div>
                 </div>

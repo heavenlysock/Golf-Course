@@ -28,7 +28,7 @@ class CoursesController < ApplicationController
     private
 
     def course_params
-        params.permit(:name, :location, :price, :holes, :par, :length, :image_url)
+        params.permit(:name, :location, :price, :holes, :par, :length, :img_url)
     end
 
     def not_found

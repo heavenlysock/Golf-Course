@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.permit(:user, :course, :recommendation, :pros, :cons, :rating)
+        params.permit(:user, :course, :recommendBool, :pros, :cons, :rating)
     end
 
     def not_found

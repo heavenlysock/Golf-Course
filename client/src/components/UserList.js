@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import UserInfo from "./UserInfo"
+import UserDetail from "./UserDetail"
 
 function UserList() {
 
@@ -18,7 +18,7 @@ function UserList() {
             </h1>
             <div className="container-fluid">
                 <div className="row">
-                    {userList.length > 0 ? userList.map(user => <UserInfo key={user.id} user={user}/>) : null}
+                    {userList.length > 0 ? userList.map(user => <UserDetail key={user.id} user={user}/>) : null}
                 </div>
             </div>
         </div>

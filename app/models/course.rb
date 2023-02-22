@@ -3,6 +3,6 @@ class Course < ApplicationRecord
     has_many :users, through: :reviews
 
 
-    validates :name, :location, :image_url, presence: true
+    validates :name, :location, :img_url, presence: true
 
 end

@@ -18,7 +18,7 @@ function UserDetail({ onShowDetails, displayInfo, currentUser, onDeleteUser, onU
                 .then(oneUser => onShowDetails(oneUser))
             }
         })
-    }, [id])
+    }, [id, onShowDetails])
 
     function handleUserUpdate() {
         setIsUpdating(!isUpdating)
