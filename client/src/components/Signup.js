@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
+import React from 'react'
 
 function Signup({ onLogIn }) {
 
@@ -7,7 +8,7 @@ function Signup({ onLogIn }) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [image, setImage] = useState("")
-    let history = useHistory()
+    let navigate = useNavigate()
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -28,7 +29,7 @@ function Signup({ onLogIn }) {
                 if(res.ok) {
                     res.json()
                     .then(newUser => onLogIn(newUser))
-                    history.push('/')
+                    .then(() => navigate.push('/'))
                 }
             })
         setName("")
@@ -90,13 +91,17 @@ function Signup({ onLogIn }) {
                             name="image" 
                             value={image}
                             onChange={e => setImage(e.target.value)}
-                        />
+                            />
+                            </div>
+                        </div>
+                        <button className='btn btn-secondary' type="submit">Create Account</button>
+                    </form>
+                    <br/>
+                    <div>
+                        Already have an account? <NavLink exact to='/login'>Log in here!</NavLink>
                     </div>
                 </div>
-                <button className='btn btn-secondary' type="submit">Create Account</button>
-            </form>
-        </div>
-    )
-}
+            )
+        }
 
 export default Signup 

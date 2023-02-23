@@ -1,15 +1,18 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import React from 'react'
 
-
-function NavBar({ currentUser, onLogOut }) {
+const NavBar = ({ currentUser, onLogOut }) => {
+    const navigate = useNavigate();
 
     function handleLogOut() {
         fetch('/logout', {
-            method: 'DELETE'
-        })
-            .then(() => onLogOut())
-    }
-
+            method: 'DELETE',
+        }).then(() => {
+          onLogOut();
+          navigate('/');
+        });
+      }
+    
 
     return (
         <nav className="navbar navbar-expand-lg bg-light">
@@ -29,9 +32,9 @@ function NavBar({ currentUser, onLogOut }) {
                     <NavLink className="nav-link" to="/users">
                     Reviewers
                     </NavLink>
-                    <NavLink className="nav-link" to="/login" onClick={handleLogOut}>
+                    <button className="nav-link" onClick={handleLogOut}>
                     Log Out
-                    </NavLink>
+                    </button>
                 </>
                 ) : (
                 <NavLink className="nav-link" to="/login">
@@ -44,8 +47,8 @@ function NavBar({ currentUser, onLogOut }) {
             ) : null}
             </div>
         </nav>
-        );
+        )
     }
 
 
-export default NavBar;
+export default NavBar

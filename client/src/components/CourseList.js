@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import CourseForm from "./CourseForm"
 import CourseDetail from "./CourseDetail"
+import React from 'react';
 
 function CourseList() {
 

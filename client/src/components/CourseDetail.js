@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
 import ReviewForm from './ReviewForm'
 import ReviewDetail from './ReviewDetail'
+import React from 'react';
 
 function CourseDetail({ onShowDetails, displayInfo, currentUser }) {
 

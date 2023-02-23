@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import React from 'react'
 
-function ReviewForm({ currentUser, displayItem, onSubmitNewReview }) {
+function ReviewForm({ currentUser, displayInfo, onSubmitNewReview }) {
 
     const [courseRating, setCourseRating] = useState("")
     const [prosComment, setProsComment] = useState("")
@@ -16,7 +17,7 @@ function ReviewForm({ currentUser, displayItem, onSubmitNewReview }) {
             cons_comment: consComment,
             recommendBool: recommendBool,
             user_id: currentUser.id,
-            // course_id: displayInfo.id
+            course_id: displayInfo.id
         }
         fetch('/reviews', {
             method: 'POST',
@@ -42,17 +43,17 @@ function ReviewForm({ currentUser, displayItem, onSubmitNewReview }) {
         <div>
             <form onSubmit={handleSubmit}>
                 <datalist id="tickmarks">
-                    <option value="0" label="0"></option>
-                    <option value="1" label="1"></option>
-                    <option value="2" label="2"></option>
-                    <option value="3" label="3"></option>
-                    <option value="4" label="4"></option>
-                    <option value="5" label="5"></option>
-                    <option value="6" label="6"></option>
-                    <option value="7" label="7"></option>
-                    <option value="8" label="8"></option>
-                    <option value="9" label="9"></option>
-                    <option value="10" label="10"></option>
+                    <option value="0" label="0">0</option>
+                    <option value="1" label="1">1</option>
+                    <option value="2" label="2">2</option>
+                    <option value="3" label="3">3</option>
+                    <option value="4" label="4">4</option>
+                    <option value="5" label="5">5</option>
+                    <option value="6" label="6">6</option>
+                    <option value="7" label="7">7</option>
+                    <option value="8" label="8">8</option>
+                    <option value="9" label="9">9</option>
+                    <option value="10" label="10">10</option>
                 </datalist>
                 <div className='form-group row mx-5 my-2'>
                     <label className='col-sm-2 col-form-label' htmlFor="courseRating">Course Rating</label>

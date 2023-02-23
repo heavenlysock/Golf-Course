@@ -1,4 +1,4 @@
-
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 function Main({ currentUser }) {
@@ -9,7 +9,7 @@ function Main({ currentUser }) {
             {/* </div> */}
             <div className="main-text">
                 <h1>Course Reviews</h1>
-                <h3>{currentUser ? `Welcome, ${currentUser.name}!` : "for all your noodle needs"}</h3>
+                <h3>{currentUser ? `Welcome, ${currentUser.name}!` : "for information on the best courses near you and around the world"}</h3>
                 <br/>
                 <div>
                     <div>

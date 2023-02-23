@@ -1,33 +1,33 @@
 import { useEffect, useState } from "react"
 import ReviewDetail from "./ReviewDetail"
-
+import React from 'react'
 
 
 
 function ReviewList() {
 
-    const [reviewList, setReviewList] = useState([])
+    const [revList, setRevList] = useState([])
 
     useEffect(() => {
         fetch('/reviews')
             .then(res => res.json())
-            .then(reviews => setReviewList(reviews))
+            .then(reviews => setRevList(reviews))
     }, [])
 
 
 
-    return(
+    return (
         <div>
-            <h1>
-               Reviews
-            </h1>
-            <div className="container-fluid">
-                <div className="row">
-                    {reviewList.map(review => <ReviewDetail key={review.id} review={review}/>)}
-                </div>
+          <h1>Reviews</h1>
+          <div className="container-fluid">
+            <div className="row">
+              {Array.isArray(revList) && revList.map(review => (
+                <ReviewDetail key={review.id} review={review} />
+              ))}
             </div>
+          </div>
         </div>
-    )
-}
-
-export default ReviewList 
+      );
+    }
+    
+    export default ReviewList;

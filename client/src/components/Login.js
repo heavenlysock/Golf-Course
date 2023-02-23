@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import React from 'react'
+
 
 function Login({ onLogIn }) {
 
-    let history = useHistory()
+    let navigate = useNavigate()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
@@ -27,7 +29,7 @@ function Login({ onLogIn }) {
             .then(response => response.json())
             .then(loggedInUser => {
                 onLogIn(loggedInUser)
-                history.push('/')
+                navigate('/')
             })
         setEmail("")
         setPassword("")

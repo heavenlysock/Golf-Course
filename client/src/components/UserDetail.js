@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import ReviewDetail from './ReviewDetail'
+import React from 'react'
 
 function UserDetail({ onShowDetails, displayInfo, currentUser, onDeleteUser, onUpdateUser }) {
 
     let { id } = useParams()
-    let history = useHistory()
+    let navigate = useNavigate()
     const [isUpdating, setIsUpdating] = useState(false)
     const [name, setName] = useState(currentUser.name)
     const [image, setImage] = useState(currentUser.image)
@@ -56,7 +57,7 @@ function UserDetail({ onShowDetails, displayInfo, currentUser, onDeleteUser, onU
               })
               .then(() => {
                   onDeleteUser(currentUser)
-                  history.push('/login')
+                  navigate.push('/login')
               })
         } 
     }

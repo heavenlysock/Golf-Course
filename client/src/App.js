@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect} from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Routes , Route } from 'react-router-dom'
 import Main from './components/Main';
 import Login from './components/Login';
 import Signup from './components/Signup';
@@ -10,7 +10,7 @@ import CourseList from './components/CourseList';
 import ReviewList from './components/ReviewList';
 import UserList from './components/UserList';
 import NavBar from './components/NavBar';
-
+import React from 'react';
 
 function App() {
 
@@ -57,32 +57,26 @@ function App() {
         currentUser={currentUser}
         onLogOut={onLogOut}
         />
-        <Switch>
-          <Route exact path='/'>
-            <Main currentUser={currentUser}/>
-          </Route>
-          <Route exact path='/reviews'>
-            <ReviewList/>
-          </Route>
-          <Route exact path='/users'>
-            <UserList/>
-          </Route>
-          <Route exact path='/courses'>
-            <CourseList/>
-          </Route>
-          <Route exact path='/courses/:id'>
-            <UserDetail onShowDetails={onShowDetails} displayInfo={displayInfo} currentUser={currentUser}/>
-          </Route>
-          <Route exact path='/users/:id'>
-            <CourseDetail onShowDetails={onShowDetails} displayInfo={displayInfo} currentUser={currentUser} onDeleteUser={onDeleteUser}/>
-          </Route>
-          <Route exact path='/login'>
-            <Login onLogIn={onLogIn}/>
-          </Route>
-          <Route exact path='/signup'>
-            <Signup onLogIn={onLogIn}/>
-          </Route>
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<Main />} />
+
+          <Route exact path="/reviews" element={<ReviewList />} />
+
+          <Route exact path="/users" element={<UserList />} />
+
+
+          <Route exact path="/courses" element={<CourseList />} />
+
+          <Route exact path='/courses/:id' element={<CourseDetail onShowDetails={onShowDetails} displayInfo={displayInfo} currentUser={currentUser} onDeleteUser={onDeleteUser} />} />
+
+          <Route exact path='/users/:id' element={<UserDetail onShowDetails={onShowDetails} displayInfo={displayInfo} currentUser={currentUser} onDeleteUser={onDeleteUser} />} />
+
+          <Route exact path='/login' element={<Login onLogIn={onLogIn} />} />
+
+          <Route exact path='/signup' element={<Signup onLogIn={onLogIn} />} />
+
+          
+        </Routes>
       
     </div>
   );

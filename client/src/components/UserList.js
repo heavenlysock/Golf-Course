@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import UserDetail from "./UserDetail"
+import React from 'react'
 
 function UserList() {
 
