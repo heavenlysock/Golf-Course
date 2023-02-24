@@ -6,14 +6,15 @@ function ReviewDetail({ review }) {
         <div className="card-deck col-sm-3 my-3">
             <div class="card text-card">
                 <h4 className='card-title my-3'>Reviews</h4>
-                <Link to={`/courses/${review.course.id}`}>
+
                     <p>pros: {review.pros}</p>
                     <p>cons: {review.cons}</p>
-                </Link>
+                    {/* <p>rating: {review.rating}</p> */}
+
                 <Link to={`/users/${review.user.id}`}>
                     <p>By {review.user.name}</p>
                 </Link>
-                    <p className='card-body'></p>
+                    {/* <p className='card-body'></p> */}
             </div>
         </div>
     )

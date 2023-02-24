@@ -12,7 +12,8 @@ function CourseDetail({ onShowDetails, displayInfo, currentUser  }) {
     const [currentReviews, setCurrentReviews] = useState([])
     const [currentCourse, setCurrentCourse] = useState(null)
 
-    const onShowDetailsCallback = useCallback(() => {
+console.log(currentCourse)
+    useEffect(() => {
         fetch(`/courses/${id}`)
         .then(response => {
             if(response.ok) {
@@ -24,9 +25,9 @@ function CourseDetail({ onShowDetails, displayInfo, currentUser  }) {
         })
     }, [id]);
         
-    useEffect(() => {
-        onShowDetailsCallback()
-    }, [id, onShowDetailsCallback])
+    // useEffect(() => {
+    //     onShowDetailsCallback()
+    // }, [id, onShowDetailsCallback])
 
     function toggleForm() {
         setShowForm(!showForm)
@@ -70,7 +71,7 @@ function CourseDetail({ onShowDetails, displayInfo, currentUser  }) {
                         <br/>
                         <div>
                             <button className='btn btn-secondary' onClick={toggleForm}>{showForm ? "Cancel" : "Add Review"}</button>
-                            {showForm ? <ReviewForm currentUser={currentUser} course={currentCourse} displayInfo={displayInfo} onSubmitNewReview={onSubmitNewReview}/> : null}
+                            {showForm ? <ReviewForm currentUser={currentUser} course={currentCourse} displayInfo={displayInfo} onSubmitNewReview={onSubmitNewReview} setCurrentReviews={setCurrentReviews} /> : null}
                         </div>
                         <br/>
                         <div className="container-fluid">

@@ -1,22 +1,25 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import React from 'react'
 
 function ReviewForm({ currentUser, onSubmitNewReview, course }) {
-
+// console.log(course.reviews)
     const [courseRating, setCourseRating] = useState("")
     const [prosComment, setProsComment] = useState("")
     const [consComment, setConsComment] = useState("")
+    const [seeReviews, setSeeReviews] = useState(course.reviews)
+
+    console.log(seeReviews)
     // const [recommendBool, setRecommendBool] = useState("")
 
-
+    const [reviewInput, setReviewInput] = useState({
+        rating: "",
+        pros: "",
+        cons: "",
+        course_id: course.id
+    })
     function handleSubmit(e) {
         e.preventDefault()
-        let reviewInput = {
-            course_rating: courseRating,
-            pros_comment: prosComment,
-            cons_comment: consComment,
-            course_id: course.id
-        }
+     
         fetch('/reviews', {
             method: 'POST',
             headers: {
@@ -27,16 +30,27 @@ function ReviewForm({ currentUser, onSubmitNewReview, course }) {
             .then(res => {
                 if(res.status === 201) {
                     res.json()
-                    .then(newReview => onSubmitNewReview(newReview))
+                    .then(newReview => {
+                        return setSeeReviews(current => [...current, newReview])
+                    })
                 }
-                alert('Review successfully added!')
+
             })
         setCourseRating("")
         setProsComment("")
         setConsComment("")
         // setRecommendBool("")
     }
+    // useEffect(() => {
+    //     seeReviews
 
+    // },[seeReviews]) 
+    const handleChange = (e) => {
+        setReviewInput({...reviewInput, [e.target.name]:e.target.value})
+
+
+
+    }
     return(
         <div>
             <form onSubmit={handleSubmit}>
@@ -62,9 +76,9 @@ function ReviewForm({ currentUser, onSubmitNewReview, course }) {
                             max="10"
                             step="0.5"
                             list="tickmarks"
-                            name="courseRating" 
-                            value={courseRating}
-                            onChange={e => setCourseRating(e.target.value)}
+                            name="rating" 
+                            value={reviewInput.rating}
+                            onChange={handleChange}
                         />
                     </div>
                     <label className='col-sm-2 col-form-label' htmlFor="prosComment">Pros</label>
@@ -72,9 +86,9 @@ function ReviewForm({ currentUser, onSubmitNewReview, course }) {
                         <input
                             className='form-control'
                             type="text" 
-                            name="prosComment" 
-                            value={prosComment}
-                            onChange={e => setProsComment(e.target.value)}
+                            name="pros" 
+                            value={reviewInput.pros}
+                            onChange={handleChange}
                         />
                     </div>
                 </div>
@@ -85,9 +99,9 @@ function ReviewForm({ currentUser, onSubmitNewReview, course }) {
                         <input
                             className='form-control'
                             type="text" 
-                            name="consComment" 
-                            value={consComment}
-                            onChange={e => setConsComment(e.target.value)}
+                            name="cons" 
+                            value={reviewInput.cons}
+                            onChange={handleChange}
                         />
                     </div>
                 </div>

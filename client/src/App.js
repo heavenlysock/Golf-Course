@@ -15,6 +15,7 @@ import React from 'react';
 function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
+  console.log(currentUser)
   const [displayInfo, setDisplayInfo] = useState(null)
 
   
@@ -26,6 +27,8 @@ function App() {
         if(response.ok) {
           response.json()
           .then((user) => setCurrentUser(user))
+        } else{
+          setCurrentUser(null)
         }
       })
 
@@ -50,6 +53,13 @@ function App() {
     setDisplayInfo(null)
   }
 
+  if(!currentUser) return (
+    <Routes>
+      {/* <Route path='/' element={<Welcome/>}/> */}
+      <Route exact path='/' element={<Login onLogIn={onLogIn} setCurrentUser={setCurrentUser}  />} />
+      <Route exact path='/signup' element={<Signup onLogIn={onLogIn} />} />
+    </Routes>
+  )
 
   return (
     <div className="App">
@@ -70,10 +80,6 @@ function App() {
           <Route exact path='/courses/:id' element={<CourseDetail onShowDetails={onShowDetails} displayInfo={displayInfo} currentUser={currentUser} onDeleteUser={onDeleteUser} />} />
 
           <Route exact path='/users/:id' element={<UserDetail onShowDetails={onShowDetails} displayInfo={displayInfo} currentUser={currentUser} onDeleteUser={onDeleteUser} />} />
-
-          <Route exact path='/login' element={<Login onLogIn={onLogIn} />} />
-
-          <Route exact path='/signup' element={<Signup onLogIn={onLogIn} />} />
 
           
         </Routes>

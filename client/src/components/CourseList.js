@@ -41,7 +41,7 @@ function CourseList() {
                     {courseList.map(course => <CourseItem key={course.id} displayInfo={course.displayInfo} courseId={course.Id} course={course}/>)}
                 </div>
                 <div>
-                    <ReviewItem />
+                    
                 </div>
             </div>
         </div>

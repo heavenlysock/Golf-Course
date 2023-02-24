@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import React from 'react'
 
 
-function Login({ onLogIn }) {
+function Login({ onLogIn, setCurrentUser}) {
 
     let navigate = useNavigate()
     const [email, setEmail] = useState("")
@@ -26,11 +26,15 @@ function Login({ onLogIn }) {
             },
             body: JSON.stringify(loginInput)
         })
-            .then(response => response.json())
-            .then(loggedInUser => {
-                onLogIn(loggedInUser)
-                navigate('/')
+            .then(response => {
+                if (response.status === 200) {
+                    response.json().then(loggedInUser => {
+                        setCurrentUser(loggedInUser);
+                        navigate("/")
+                    })
+                }
             })
+
         setEmail("")
         setPassword("")
     }

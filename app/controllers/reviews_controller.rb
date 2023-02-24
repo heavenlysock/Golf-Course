@@ -13,7 +13,9 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        render json: @current_user.reviews.create!(review_params), status: :created
+        # byebug
+        newReview = @current_user.reviews.create!(review_params)
+        render json: newReview, status: :created
     end
 
     def update

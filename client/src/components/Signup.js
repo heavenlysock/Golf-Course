@@ -101,7 +101,7 @@ function Signup({ onLogIn }) {
                     </form>
                     <br/>
                     <div>
-                        Already have an account? <NavLink exact to='/login'>Log in here!</NavLink>
+                        Already have an account? <NavLink exact to='/'>Log in here!</NavLink>
                     </div>
                 </div>
             )

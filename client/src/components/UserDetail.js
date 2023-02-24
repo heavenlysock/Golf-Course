@@ -36,12 +36,12 @@ function UserDetail({ onShowDetails, displayInfo, currentUser, onDeleteUser, onU
         fetch(`/users/${currentUser.id}`, {
             method: 'PATCH',
             headers: {
-                'Content-Type' : 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(updateInput)
         }) 
             .then(res => {
-                if(res.ok) {
+                if(res.status === 202) {
                     res.json()
                     .then((updatedUser) => onShowDetails(updatedUser)) 
                     .then(handleUserUpdate)

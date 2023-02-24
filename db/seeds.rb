@@ -12,12 +12,12 @@ Review.destroy_all
 
 
 u1 = User.create(id: 1, name: "robert", email: "bobmail@gmail.com", password: "robert123")
-u3 = User.create(id: 3, name: "adrian", email: "barbarian44@gmail.com", password: "adrian123")
-u4 = User.create(id: 4, name: "keith", email: "keithreef@gmail.com", password: "keith123")
-u5 = User.create(id: 5, name: "william", email: "williamtell@gmail.com", password: "william123")
-u6 = User.create(id: 6, name: "ian", email: "ianmian@gmail.com", password: "ian123")
-u7 = User.create(id: 7, name: "jason", email: "whitethunder@gmail.com", password: "jason123")
-u8 = User.create(id: 8, name: "john", email: "iamhim@gmail.com", password: "john123")
+u2 = User.create(id: 3, name: "adrian", email: "barbarian44@gmail.com", password: "adrian123")
+u3 = User.create(id: 4, name: "keith", email: "keithreef@gmail.com", password: "keith123")
+u4 = User.create(id: 5, name: "william", email: "williamtell@gmail.com", password: "william123")
+u5 = User.create(id: 6, name: "ian", email: "ianmian@gmail.com", password: "ian123")
+u6 = User.create(id: 7, name: "jason", email: "whitethunder@gmail.com", password: "jason123")
+u7 = User.create(id: 8, name: "john", email: "iamhim@gmail.com", password: "john123")
 
 
 
@@ -38,15 +38,15 @@ g13 = Course.create(id: 13, name: 'Rancho Park Golf Course', location: "Los Ange
 Review.create(user: u1, course: g1, id: 1, recommendation: true, pros: "Visited my aunt and needed to get the golf game goin. Enjoyed the course! Go Cougs!", cons: "It rained during the back 9...", rating: 6)
 Review.create(user: u2, course: g2, id: 2, recommendation: true, pros: "Such a beatiful course. Wasn't able to get a tee time at Pebble but this was a great consolation experience.", cons: "I couldn't play Pebble!", rating: 8)
 Review.create(user: u3, course: g3, id: 3, recommendation: true, pros: "If I could play one course for the rest of my life, this just might be it.", cons: "It's so difficult for me as a 12+ handicap I cry myself to sleep sometimes.", rating: 9)
-Review.create(user: u8, course: g4, id: 4, recommendation: true, pros: "Every time I go here I picture myself teeing off on the 18th hole for a green jacket.", cons: "Very exclusive as a public goer.", rating: 9)
+Review.create(user: u2, course: g4, id: 4, recommendation: true, pros: "Every time I go here I picture myself teeing off on the 18th hole for a green jacket.", cons: "Very exclusive as a public goer.", rating: 9)
 Review.create(user: u6, course: g5, id: 5, recommendation: true, pros: "I grew up going to this course so it's home to me.", cons: "I haven't gone much lately as the price has always been stiff compared to other local courses.", rating: 5)
 Review.create(user: u4, course: g6, id: 6, recommendation: true, pros: "Historic golf course!", cons: "Impossible to get a tee time without connections and good luck finding your miss-hits.", rating: 8)
 Review.create(user: u1, course: g7, id: 7, recommendation: true, pros: "Anytime I wanna play TopGolf and hit the links, I'M HERE BRO.", cons: "Ain't nobody got time for the wait at TopGolf and I lose hella balls here.", rating: 5)
 Review.create(user: u7, course: g8, id: 8, recommendation: true, pros: "Groundskeeper is super chill and nice to be so close to home!", cons: "The traffic around Brentwood can be a headache for my golfing partners.", rating: 6)
-Review.create(user: u8, course: g9, id: 9, recommendation: true, pros: "For the price it's tough to beat being able to play a full par 72 locally.", cons: "The course is not best maintained despite the great deal.", rating: 5)
+Review.create(user: u7, course: g9, id: 9, recommendation: true, pros: "For the price it's tough to beat being able to play a full par 72 locally.", cons: "The course is not best maintained despite the great deal.", rating: 5)
 Review.create(user: u5, course: g10, id: 10, recommendation: true, pros: "One of Tiger Woods' main stomping grounds! Privileged to play here.", cons: "Very tough getting a public tee time and DIFFICULT.", rating: 8)
 Review.create(user: u3, course: g11, id: 11, recommendation: true, pros: "Extremely beautiful scenery and views. Host of one of the biggest PGA events.", cons: "Have you driven to Pacific Palisades??? Good luck getting a tee time.", rating: 8)
-Review.create(user: u5, course: g12, id: 12, recommendation: true, pros: "Beatiful golf course. Always enjoy playing here", cons: "For what the course is the price is a bit steep for me as a local.", rating: 6)
+Review.create(user: u5, course: g12, id: 12, recommendation: true, pros: "Beautiful golf course. Always enjoy playing here", cons: "For what the course is the price is a bit steep for me as a local.", rating: 6)
 Review.create(user: u4, course: g13, id: 13, recommendation: true, pros: "Great course, a host of the LPGA tour.", cons: "The terrain is very hilly, be prepared for a lot of exercise and high launch trajectory.", rating: 7)
 
 

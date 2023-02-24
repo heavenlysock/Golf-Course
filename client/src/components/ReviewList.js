@@ -12,9 +12,7 @@ function ReviewList() {
         fetch('/reviews')
             .then(res => res.json())
             .then(reviews => setRevList(reviews))
-    }, [])
-
-
+    }, [setRevList])
 
     return (
         <div>
@@ -22,7 +20,7 @@ function ReviewList() {
           <div className="container-fluid">
             <div className="row">
               {Array.isArray(revList) && revList.map(review => (
-                <ReviewItem key={review.id} review={review} />
+                <ReviewItem key={review.id} review={review} setRevList={setRevList} />
                 
               ))}
             </div>
