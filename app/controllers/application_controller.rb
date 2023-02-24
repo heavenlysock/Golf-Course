@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::API
   include ActionController::Cookies
 
+  rescue_from ActiveRecord::RecordInvalid, with: :invalid
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   before_action :authenticated_user
 
@@ -13,5 +15,9 @@ class ApplicationController < ActionController::API
 
   def invalid(invalid)
       render json: { error: invalid.record.errors.full_messages }, status: :unprocessable_entity
+  end
+
+  def not_found
+    render json: { error: "User not found" }, status: :not_found
   end
 end

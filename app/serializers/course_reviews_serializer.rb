@@ -1,4 +1,4 @@
-class CourseReviewSerializer < ActiveModel::Serializer
+class CourseReviewsSerializer < ActiveModel::Serializer
     attributes :id, :name, :location, :par, :length, :holes, :price, :img_url 
 
     has_many :reviews

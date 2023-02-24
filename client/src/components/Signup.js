@@ -29,13 +29,16 @@ function Signup({ onLogIn }) {
                 if(res.ok) {
                     res.json()
                     .then(newUser => onLogIn(newUser))
-                    .then(() => navigate.push('/'))
+                    .then(() => navigate('/'))
+                } else {
+                    res.json()
+                    .then(errorObj => alert(errorObj.error))
                 }
             })
-        setName("")
-        setEmail("")
-        setPassword("")
-        setImage("")
+        // setName("")
+        // setEmail("")
+        // setPassword("")
+        // setImage("")
     }
 
     return (

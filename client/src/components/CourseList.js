@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import CourseForm from "./CourseForm"
-import CourseDetail from "./CourseDetail"
+// import CourseDetail from "./CourseDetail"
+import CourseItem from "./CourseItem"
+import ReviewItem from "./ReviewItem"
 import React from 'react';
 
 function CourseList() {
@@ -36,7 +38,10 @@ function CourseList() {
             <br/>
             <div className="container-fluid">
                 <div className="row">
-                    {courseList.map(course => <CourseDetail key={course.id} course={course}/>)}
+                    {courseList.map(course => <CourseItem key={course.id} displayInfo={course.displayInfo} courseId={course.Id} course={course}/>)}
+                </div>
+                <div>
+                    <ReviewItem />
                 </div>
             </div>
         </div>

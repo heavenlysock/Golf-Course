@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        render json: Review.create!(review_params), status: :created
+        render json: @current_user.reviews.create!(review_params), status: :created
     end
 
     def update
@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.permit(:user, :course, :recommendBool, :pros, :cons, :rating)
+        params.permit(:user_id, :course_id, :pros, :cons, :rating)
     end
 
     def not_found
@@ -44,4 +44,4 @@ end
 
 
     
-end
+

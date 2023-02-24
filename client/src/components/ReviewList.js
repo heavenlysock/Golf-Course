@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
-import ReviewDetail from "./ReviewDetail"
 import React from 'react'
+import ReviewItem from './ReviewItem'
 
 
 
 function ReviewList() {
-
+    // const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [revList, setRevList] = useState([])
 
     useEffect(() => {
@@ -22,9 +22,20 @@ function ReviewList() {
           <div className="container-fluid">
             <div className="row">
               {Array.isArray(revList) && revList.map(review => (
-                <ReviewDetail key={review.id} review={review} />
+                <ReviewItem key={review.id} review={review} />
+                
               ))}
             </div>
+            {/* <div>
+               <ReviewForm
+                  isAuthenticated={isAuthenticated}
+                  onSubmitNewReview={onSubmitNewReview}
+                  onUpdateReview={onUpdateReview}
+                  onDeleteReview={onDeleteReview}
+                  course={course}
+                  review={review}
+                />
+            </div> */}
           </div>
         </div>
       );

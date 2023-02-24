@@ -8,8 +8,8 @@ function UserDetail({ onShowDetails, displayInfo, currentUser, onDeleteUser, onU
     let { id } = useParams()
     let navigate = useNavigate()
     const [isUpdating, setIsUpdating] = useState(false)
-    const [name, setName] = useState(currentUser.name)
-    const [image, setImage] = useState(currentUser.image)
+    const [name, setName] = useState(currentUser ? currentUser.name : '');
+    const [image, setImage] = useState(currentUser?.image || '');
 
     useEffect(() => {
         fetch(`/users/${id}`)

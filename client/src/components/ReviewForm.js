@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import React from 'react'
 
-function ReviewForm({ currentUser, displayInfo, onSubmitNewReview }) {
+function ReviewForm({ currentUser, onSubmitNewReview, course }) {
 
     const [courseRating, setCourseRating] = useState("")
     const [prosComment, setProsComment] = useState("")
     const [consComment, setConsComment] = useState("")
-    const [recommendBool, setRecommendBool] = useState("")
+    // const [recommendBool, setRecommendBool] = useState("")
 
 
     function handleSubmit(e) {
@@ -15,9 +15,7 @@ function ReviewForm({ currentUser, displayInfo, onSubmitNewReview }) {
             course_rating: courseRating,
             pros_comment: prosComment,
             cons_comment: consComment,
-            recommendBool: recommendBool,
-            user_id: currentUser.id,
-            course_id: displayInfo.id
+            course_id: course.id
         }
         fetch('/reviews', {
             method: 'POST',
@@ -27,7 +25,7 @@ function ReviewForm({ currentUser, displayInfo, onSubmitNewReview }) {
             body: JSON.stringify(reviewInput)
         })
             .then(res => {
-                if(res.ok) {
+                if(res.status === 201) {
                     res.json()
                     .then(newReview => onSubmitNewReview(newReview))
                 }
@@ -36,7 +34,7 @@ function ReviewForm({ currentUser, displayInfo, onSubmitNewReview }) {
         setCourseRating("")
         setProsComment("")
         setConsComment("")
-        setRecommendBool("")
+        // setRecommendBool("")
     }
 
     return(
@@ -94,18 +92,18 @@ function ReviewForm({ currentUser, displayInfo, onSubmitNewReview }) {
                     </div>
                 </div>
                 <br/>
-                <div className='form-group row mx-5 my-2'>
+                {/* <div className='form-group row mx-5 my-2'>
                     <label className='col-sm-2 col-form-label' htmlFor="recommendBool">Recommendation</label>
                     <div className='col-sm-6'>
                         <input
                             className='form-control'
-                            type="checkbox" 
+                            type="checkbox"
                             name="recommendBool" 
                             value={recommendBool}
                             onChange={e => setRecommendBool(e.target.checked)}
                         />
                     </div>
-                </div>
+                </div> */}
                 <br/>
                 <button className='btn btn-secondary' type="submit">Add Review</button>
             </form>

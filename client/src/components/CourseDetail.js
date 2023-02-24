@@ -4,26 +4,28 @@ import ReviewForm from './ReviewForm'
 import ReviewDetail from './ReviewDetail'
 import React from 'react';
 
-function CourseDetail({ onShowDetails, displayInfo, currentUser }) {
+function CourseDetail({ onShowDetails, displayInfo, currentUser  }) {
 
     let { id } = useParams()
 
     const [showForm, setShowForm] = useState(false)
     const [currentReviews, setCurrentReviews] = useState([])
+    const [currentCourse, setCurrentCourse] = useState(null)
 
-    const onShowDetailsCallback = useCallback(onShowDetails, [onShowDetails]);
-
-    useEffect(() => {
+    const onShowDetailsCallback = useCallback(() => {
         fetch(`/courses/${id}`)
         .then(response => {
             if(response.ok) {
                 response.json()
                 .then(singleCourse => {
-                    onShowDetailsCallback(singleCourse)
-                    setCurrentReviews(singleCourse.reviews)
+                    setCurrentCourse(singleCourse)
                 })
             }
         })
+    }, [id]);
+        
+    useEffect(() => {
+        onShowDetailsCallback()
     }, [id, onShowDetailsCallback])
 
     function toggleForm() {
@@ -38,24 +40,24 @@ function CourseDetail({ onShowDetails, displayInfo, currentUser }) {
 
     return(
         <div>
-            {displayInfo ? 
+            {currentCourse ? 
                 <div>
                     <div className='card mb-3 mx-auto'>
                         <div className='row no-gutters flexCont'>
                             <div className="col-md-4">
                                 <img
-                                    src={displayInfo.image_url}
+                                    src={currentCourse.image_url}
                                     className="card-img my-5 mx-5"
                                     alt="Course"
                                 />
                                 {/* </img> */}
                             </div>
                             <div className='col-md-8'>
-                                <h3 className='card-title my-5'>{displayInfo.name} {displayInfo.location}</h3>
-                                <p>Price: {displayInfo.price}</p> 
-                                <p>Holes: {displayInfo.holes}</p> 
-                                <p>Par: {displayInfo.par}</p> 
-                                <p>Length: {displayInfo.length}</p> 
+                                <h3 className='card-title my-5'>{currentCourse.name} {currentCourse.location}</h3>
+                                <p>Price: {currentCourse.price}</p> 
+                                <p>Holes: {currentCourse.holes}</p> 
+                                <p>Par: {currentCourse.par}</p> 
+                                <p>Length: {currentCourse.length}</p> 
 
                             </div>
                         </div>
@@ -63,17 +65,17 @@ function CourseDetail({ onShowDetails, displayInfo, currentUser }) {
                     <br/>
                     <div>
                         <div>
-                            <h3>Reviews for {displayInfo.name} &#40;{displayInfo.total_reviews}&#41;</h3>
+                            <h3>Reviews for {currentCourse.name} &#40;{currentCourse.reviews.length}&#41;</h3>
                         </div>
                         <br/>
                         <div>
                             <button className='btn btn-secondary' onClick={toggleForm}>{showForm ? "Cancel" : "Add Review"}</button>
-                            {showForm ? <ReviewForm currentUser={currentUser} displayInfo={displayInfo} onSubmitNewReview={onSubmitNewReview}/> : null}
+                            {showForm ? <ReviewForm currentUser={currentUser} course={currentCourse} displayInfo={displayInfo} onSubmitNewReview={onSubmitNewReview}/> : null}
                         </div>
                         <br/>
                         <div className="container-fluid">
                             <div className="row">
-                                {currentReviews.map(review => <ReviewDetail key={review.id} review={review}/>)}
+                                {currentCourse.reviews.map(review => <ReviewDetail key={review.id} review={review}/>)}
                             </div>
                         </div>
                     </div>

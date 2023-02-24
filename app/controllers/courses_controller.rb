@@ -11,7 +11,7 @@ class CoursesController < ApplicationController
     end
 
     def show
-        render json: Course.find(params[:id]), status: :ok, serializer: CourseReviewSerializer
+        render json: Course.find(params[:id]), status: :ok, serializer: CourseReviewsSerializer
     end
 
     def create
@@ -26,6 +26,10 @@ class CoursesController < ApplicationController
 
 
     private
+
+    # def render_courses
+    #     render json: Course.all, status: :ok
+    # end
 
     def course_params
         params.permit(:name, :location, :price, :holes, :par, :length, :img_url)
